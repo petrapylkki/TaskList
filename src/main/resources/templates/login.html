@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link type="text/css" rel="stylesheet" href="/css/styles.css" th:href="@{css/styles.css}" />
+    </head>
+    <body class="login">
+    	<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+		  <a class="navbar-brand">Task App</a>
+		</nav>
+	    <div class="container">
+	        <div class="alert alert-danger" th:if="${param.error}">
+	            Invalid username and password.
+	        </div>
+	        <div class="alert alert-success" th:if="${param.logout}">
+	            You have been logged out.
+	        </div>
+	        <div class="alert alert-success" th:if="${param.signup}">
+	            Your account has been created.
+	        </div>
+	        <form th:action="@{/login}" method="post">
+	            <div><label> User Name : <input type="text" class="form-control" name="username"/> </label></div>
+	            <div><label> Password: <input type="password" class="form-control" name="password"/> </label></div>
+	            <div><input type="submit" class="btn btn-primary" value="Sign In"/></div>
+	        </form>
+	        <div class="alert alert-warning" style="margin: 20px">        
+	    		<p>Don't have an account yet?
+	    			<a th:href="@{/signup}">Sign-up here</a>
+	    		</p>
+	    	</div>
+	    </div>
+    </body>
+</html>

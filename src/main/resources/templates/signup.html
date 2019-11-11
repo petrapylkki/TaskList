@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <title>SignUp</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link type="text/css" rel="stylesheet" href="/css/styles.css" th:href="@{css/styles.css}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+</head>
+<body class="login">
+	<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+		  <a class="navbar-brand">Task App</a>
+		</nav>
+	<div class="container">
+		<h3>Sign-up</h3>
+			<form th:object="${signupform}" th:action="@{/saveuser}" action="#" method="post" style="margin-bottom:5">
+				<div>
+					<label> Username<input type="text" th:field="*{username}" class="form-control"/></label>
+					<p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</p>	
+				</div>
+				<div>
+					<label> Password<input type="password" th:field="*{password}" class="form-control"/></label>
+					<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</p>	
+				</div>
+				<div>
+					<label> Re-type Password <input type="password" th:field="*{passwordCheck}" class="form-control"/></label>
+					<p th:if="${#fields.hasErrors('passwordCheck')}" th:errors="*{passwordCheck}">Password Match Error</p>	
+				</div>
+				<input type="submit" class="btn btn-success" value="Signup"></input>
+				<a th:href="@{/login}">Cancel</a>
+		</form>
+	</div>
+</body>
+</html>

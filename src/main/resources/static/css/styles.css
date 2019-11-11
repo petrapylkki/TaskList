@@ -1,0 +1,23 @@
+.login{
+	background: #b7bfdb;
+}
+.navbar-brand {
+	font-size: 1.45rem!important;
+}
+.container {
+	width: 40em!important;
+	padding-top: 15px;
+	padding-bottom: 5px!important;
+	margin-top: 45px;
+    border: #c9ced3 solid 1px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+.alert-warning {
+	margin: 20px 0px 20px 0!important;
+}
+
+h3 {
+	margin-left: 5px;
+}
